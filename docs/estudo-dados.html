@@ -1,0 +1,924 @@
+<title>Dossiê de Preços Aptum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --bg:#FAF8F9;
+  --surface:#FFFFFF;
+  --surface-2:#F3EFF1;
+  --ink:#231C22;
+  --ink-2:#5B5157;
+  --muted:#8B8188;
+  --rule:#E4DDE1;
+  --rule-strong:#CFC5CB;
+  --accent:#7A2340;
+  --accent-soft:#F2E4E9;
+  --up:#9E2B4C;
+  --down:#2A6FBF;
+  --up-soft:#F4E2E7;
+  --down-soft:#E2ECF8;
+  --neutral-mark:#B7ADB2;
+  --grade-a:#2A6FBF;
+  --grade-b:#8A6A1F;
+  --grade-c:#8B8188;
+
+  --f-display:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-body:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  --measure:68ch;
+  --pad:clamp(20px,4vw,56px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#151216;
+    --surface:#1C181D;
+    --surface-2:#241F26;
+    --ink:#F0EAEE;
+    --ink-2:#B7ABB2;
+    --muted:#8B7F86;
+    --rule:#332C34;
+    --rule-strong:#4A414B;
+    --accent:#DB8098;
+    --accent-soft:#33202A;
+    --up:#D4657F;
+    --down:#5F95DC;
+    --up-soft:#341F27;
+    --down-soft:#1B2739;
+    --neutral-mark:#5C5259;
+    --grade-a:#5F95DC;
+    --grade-b:#C6A44E;
+    --grade-c:#8B7F86;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151216;
+  --surface:#1C181D;
+  --surface-2:#241F26;
+  --ink:#F0EAEE;
+  --ink-2:#B7ABB2;
+  --muted:#8B7F86;
+  --rule:#332C34;
+  --rule-strong:#4A414B;
+  --accent:#DB8098;
+  --accent-soft:#33202A;
+  --up:#D4657F;
+  --down:#5F95DC;
+  --up-soft:#341F27;
+  --down-soft:#1B2739;
+  --neutral-mark:#5C5259;
+  --grade-a:#5F95DC;
+  --grade-b:#C6A44E;
+  --grade-c:#8B7F86;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:16px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--accent-soft);color:var(--ink)}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+/* ---------- shell ---------- */
+.shell{max-width:1180px;margin:0 auto;padding:0 var(--pad) 96px;display:grid;grid-template-columns:1fr;gap:0}
+@media (min-width:1080px){
+  .shell{grid-template-columns:200px minmax(0,1fr);column-gap:56px}
+  .rail{grid-column:1;grid-row:2}
+  .flow{grid-column:2;grid-row:2}
+  .masthead{grid-column:1 / -1;grid-row:1}
+}
+
+/* ---------- masthead ---------- */
+.masthead{padding:56px 0 34px;border-bottom:1px solid var(--rule-strong)}
+.eyebrow{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 20px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;
+}
+.eyebrow b{color:var(--accent);font-weight:500}
+h1{
+  font-family:var(--f-display);font-weight:500;font-size:clamp(38px,6.2vw,66px);
+  line-height:1.02;letter-spacing:-.022em;margin:0;text-wrap:balance;max-width:16ch;
+}
+h1 em{font-style:italic;color:var(--accent)}
+.standfirst{
+  font-family:var(--f-display);font-size:clamp(18px,2.1vw,22px);line-height:1.5;
+  color:var(--ink-2);max-width:60ch;margin:22px 0 0;text-wrap:pretty;
+}
+.byline{
+  margin:28px 0 0;font-family:var(--f-mono);font-size:11.5px;color:var(--muted);
+  letter-spacing:.03em;line-height:1.8;
+}
+
+/* ---------- rail ---------- */
+.rail{padding:36px 0 0}
+@media (min-width:1080px){
+  .rail>nav{position:sticky;top:32px}
+}
+.rail h2{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 14px;font-weight:500;
+}
+.rail ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1px}
+.rail li{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-top:1px solid var(--rule)}
+.rail li:first-child{border-top:0}
+.rail .n{font-family:var(--f-mono);font-size:10.5px;color:var(--muted);min-width:18px}
+.rail a{color:var(--ink-2);text-decoration:none;font-size:13.5px;line-height:1.35}
+.rail a:hover{color:var(--accent);text-decoration:underline}
+
+/* ---------- flow ---------- */
+.flow{padding:44px 0 0;min-width:0}
+section{margin:0 0 68px;scroll-margin-top:24px}
+.sec-head{display:flex;gap:14px;align-items:baseline;margin:0 0 6px;border-top:2px solid var(--ink);padding-top:12px}
+.sec-num{font-family:var(--f-mono);font-size:11px;color:var(--accent);letter-spacing:.1em;padding-top:6px}
+h2.sec{font-family:var(--f-display);font-weight:600;font-size:clamp(25px,3.2vw,33px);line-height:1.14;letter-spacing:-.015em;margin:0;text-wrap:balance}
+h3{font-family:var(--f-body);font-weight:600;font-size:16.5px;letter-spacing:-.005em;margin:34px 0 10px;color:var(--ink)}
+h4{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+p{margin:0 0 15px;max-width:var(--measure)}
+.lede{font-size:17.5px;color:var(--ink-2);max-width:var(--measure)}
+ul.body,ol.body{max-width:var(--measure);margin:0 0 16px;padding-left:19px}
+ul.body li,ol.body li{margin:0 0 8px}
+strong{font-weight:600}
+.mono{font-family:var(--f-mono);font-size:.92em;font-variant-numeric:tabular-nums}
+
+/* ---------- evidence grade ---------- */
+.grade{
+  display:inline-flex;align-items:center;gap:5px;font-family:var(--f-mono);font-size:10px;
+  letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border-radius:3px;
+  border:1px solid currentColor;white-space:nowrap;vertical-align:1px;font-weight:500;
+}
+.g-a{color:var(--grade-a)}
+.g-b{color:var(--grade-b)}
+.g-c{color:var(--grade-c)}
+
+/* ---------- stat row ---------- */
+.stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 8px;
+}
+.stat{background:var(--surface);padding:18px 18px 16px}
+.stat .v{font-family:var(--f-display);font-size:31px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink)}
+.stat .v.up{color:var(--up)}
+.stat .v.down{color:var(--down)}
+.stat .k{font-size:12.5px;color:var(--ink-2);margin-top:9px;line-height:1.4}
+
+/* ---------- findings ---------- */
+.findings{display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:24px 0 0}
+.finding{background:var(--surface);padding:20px 22px;display:grid;grid-template-columns:34px minmax(0,1fr);gap:16px}
+.finding .fn{font-family:var(--f-mono);font-size:12px;color:var(--accent);padding-top:3px;font-variant-numeric:tabular-nums}
+.finding .ft{font-family:var(--f-display);font-size:20px;line-height:1.24;letter-spacing:-.012em;margin:0 0 7px;font-weight:500}
+.finding p{font-size:14.5px;margin:0;color:var(--ink-2);max-width:58ch}
+.finding .decide{
+  margin-top:11px;padding-top:10px;border-top:1px dashed var(--rule-strong);
+  font-size:13.5px;color:var(--ink);display:flex;gap:9px;align-items:baseline;max-width:58ch;
+}
+.finding .decide span:first-child{
+  font-family:var(--f-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);white-space:nowrap;padding-top:2px;
+}
+
+/* ---------- figure ---------- */
+figure{margin:30px 0;padding:0}
+.figbox{border:1px solid var(--rule);background:var(--surface);padding:22px 22px 16px}
+figcaption{font-size:12.5px;color:var(--muted);line-height:1.55;margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);max-width:74ch}
+figcaption b{color:var(--ink-2);font-weight:500}
+.figtitle{font-family:var(--f-body);font-weight:600;font-size:15px;margin:0 0 3px;color:var(--ink)}
+.figsub{font-size:12.5px;color:var(--muted);margin:0 0 18px}
+.chart-scroll{overflow-x:auto}
+svg{display:block;max-width:100%;height:auto}
+.sm{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px}
+
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 16px}
+.legend span{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-2)}
+.swatch{width:11px;height:11px;border-radius:2px;display:inline-block}
+
+/* ---------- table ---------- */
+.tablewrap{overflow-x:auto;margin:24px 0;border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--surface);min-width:560px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;background:var(--surface-2);border-bottom:1px solid var(--rule-strong);
+}
+tbody tr:last-child td{border-bottom:0}
+td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.tight{white-space:nowrap}
+
+/* ---------- callout ---------- */
+.callout{border-left:3px solid var(--accent);background:var(--accent-soft);padding:16px 20px;margin:26px 0;max-width:var(--measure)}
+.callout p{margin:0;font-size:14.5px;color:var(--ink)}
+.callout p+p{margin-top:10px}
+.callout .tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:7px}
+
+.warn{border-left:3px solid var(--up);background:var(--up-soft)}
+.warn .tag{color:var(--up)}
+
+/* ---------- plan ---------- */
+.plan{display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:24px 0}
+.step{background:var(--surface);padding:18px 20px;display:grid;grid-template-columns:26px minmax(0,1fr);gap:14px}
+.step .sn{font-family:var(--f-mono);font-size:11px;color:var(--muted);padding-top:4px;font-variant-numeric:tabular-nums}
+.step h3{margin:0 0 5px;font-size:15px}
+.step p{margin:0;font-size:13.5px;color:var(--ink-2);max-width:60ch}
+.step .meta{margin-top:9px;font-family:var(--f-mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em}
+
+/* ---------- sources ---------- */
+.srcs{columns:2;column-gap:40px;font-size:12.5px;line-height:1.65;color:var(--ink-2)}
+@media (max-width:720px){.srcs{columns:1}}
+.srcs li{break-inside:avoid;margin:0 0 9px}
+.srcs a{word-break:break-word}
+
+/* ---------- tooltip ---------- */
+#tip{
+  position:fixed;pointer-events:none;opacity:0;transition:opacity .1s;z-index:50;
+  background:var(--ink);color:var(--bg);font-family:var(--f-mono);font-size:11.5px;
+  padding:6px 9px;border-radius:3px;white-space:nowrap;font-variant-numeric:tabular-nums;
+}
+[data-tip]{cursor:default}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+footer{border-top:1px solid var(--rule-strong);margin-top:20px;padding-top:22px;font-size:12.5px;color:var(--muted);max-width:var(--measure)}
+</style>
+
+<div class="shell">
+
+<header class="masthead">
+  <p class="eyebrow">
+    <b>Aptum</b><span>Estudo de dados</span><span>Setembro de 2026</span><span>v0.1</span>
+  </p>
+  <h1>Dossiê de <em>Preços</em></h1>
+  <p class="standfirst">O que os dados públicos de e-commerce dizem sobre flutuação de preço em beleza no Brasil — e quais decisões do Aptum eles confirmam, calibram ou derrubam.</p>
+  <p class="byline">
+    Análise das fontes levantadas nos documentos 03, 04 e 05 do projeto.<br>
+    Cinco achados · quatro ajustes de requisito · um plano de duas semanas.
+  </p>
+</header>
+
+<aside class="rail">
+  <nav aria-label="Índice do estudo">
+    <h2>Índice</h2>
+    <ol>
+      <li><span class="n">00</span><a href="#metodo">Como ler este estudo</a></li>
+      <li><span class="n">01</span><a href="#sumario">Sumário executivo</a></li>
+      <li><span class="n">02</span><a href="#vertical">O vertical certo</a></li>
+      <li><span class="n">03</span><a href="#janela">A janela de inflação</a></li>
+      <li><span class="n">04</span><a href="#limiares">Limiares por chute</a></li>
+      <li><span class="n">05</span><a href="#coldstart">O cold start</a></li>
+      <li><span class="n">06</span><a href="#buraco">O buraco</a></li>
+      <li><span class="n">07</span><a href="#matriz">Matriz de fontes</a></li>
+      <li><span class="n">08</span><a href="#impacto">Impacto nos requisitos</a></li>
+      <li><span class="n">09</span><a href="#plano">Plano de análise</a></li>
+      <li><span class="n">10</span><a href="#riscos">Riscos analíticos</a></li>
+      <li><span class="n">11</span><a href="#fontes">Fontes</a></li>
+    </ol>
+  </nav>
+</aside>
+
+<main class="flow">
+
+<!-- ============ 00 ============ -->
+<section id="metodo">
+  <div class="sec-head"><span class="sec-num">00</span><h2 class="sec">Como ler este estudo</h2></div>
+  <p class="lede">Nenhum número aqui foi medido por nós. Tudo é leitura de fonte de terceiro, e a qualidade dessas fontes varia muito. Por isso cada afirmação carrega uma nota de evidência.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Nota</th><th>Significa</th><th>Como usar</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="tight"><span class="grade g-a">A · primária</span></td>
+          <td>Microdado aberto, baixável, com metodologia publicada e revisão acadêmica.</td>
+          <td>Pode virar parâmetro do produto depois de medido por nós.</td>
+        </tr>
+        <tr>
+          <td class="tight"><span class="grade g-b">B · estudo</span></td>
+          <td>Estudo de empresa privada, em escala real, mas com base bruta fechada e metodologia parcial.</td>
+          <td>Ordem de grandeza e direção. Nunca número dentro do app.</td>
+        </tr>
+        <tr>
+          <td class="tight"><span class="grade g-c">C · agregado</span></td>
+          <td>Release setorial, matéria de imprensa ou índice agregado.</td>
+          <td>Contexto e conteúdo editorial, com a fonte sempre citada ao lado.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="tag">Postura analítica</span>
+    <p>Um estudo com nota <strong>B</strong> pode mudar uma decisão de produto — mas não pode virar constante no código. A diferença importa: o achado 02 deste dossiê muda uma regra de negócio inteira apoiado em evidência B, e isso está certo. O que seria errado é escrever <span class="mono">DESCONTO_ESPERADO = 0.66</span> em algum lugar.</p>
+  </div>
+</section>
+
+<!-- ============ 01 ============ -->
+<section id="sumario">
+  <div class="sec-head"><span class="sec-num">01</span><h2 class="sec">Sumário executivo</h2></div>
+  <p class="lede">Cinco achados, cada um amarrado à decisão que ele obriga.</p>
+
+  <div class="findings">
+
+    <article class="finding">
+      <div class="fn">01</div>
+      <div>
+        <p class="ft">O vertical de beleza está validado por dado, não por intuição</p>
+        <p>Na Black Friday brasileira, beleza e perfumaria é a categoria que mais desconta — enquanto a média de todas as categorias <em>sobe</em>. O app foi apontado, por acaso ou por sorte, para o único lugar onde a promessa "eu te aviso quando estiver barato" tem matéria-prima de verdade. <span class="grade g-b">B</span></p>
+        <div class="decide"><span>Decisão</span><span>Manter o vertical e usar isso como argumento de posicionamento.</span></div>
+      </div>
+    </article>
+
+    <article class="finding">
+      <div class="fn">02</div>
+      <div>
+        <p class="ft">A regra do calendário sazonal, como está escrita, pode dar o conselho errado</p>
+        <p>Os preços inflam entre um mês e duas semanas antes da Black Friday. O melhor momento de compra medido foi o fim de outubro — não a data. Um "espere a Black Friday" enviado em 5 de novembro pode empurrar a usuária para um preço pior. <span class="grade g-b">B</span></p>
+        <div class="decide"><span>Decisão</span><span>Reescrever a RN-19 com um terceiro estado: a janela de inflação.</span></div>
+      </div>
+    </article>
+
+    <article class="finding">
+      <div class="fn">03</div>
+      <div>
+        <p class="ft">Os limiares do motor de alerta são chutes — e existe dado aberto para medi-los</p>
+        <p>"Queda de 10%", "janela de 90 dias", "percentil 10": são escolhas razoáveis minhas, não medições. Os microdados do Billion Prices Project incluem o Brasil, no nível do produto, com preço diário — e permitem substituir cada chute por um número. <span class="grade g-a">A</span></p>
+        <div class="decide"><span>Decisão</span><span>Medir antes de congelar RN-03, RN-05 e a frequência de coleta.</span></div>
+      </div>
+    </article>
+
+    <article class="finding">
+      <div class="fn">04</div>
+      <div>
+        <p class="ft">O cold start tem solução parcial e imediata, em três camadas</p>
+        <p>Nunca vivemos uma Black Friday, mas não precisamos esperar um ano. Dado setorial resolve hoje o nível informativo, histórico retroativo pago resolve o nível preditivo, e a coleta própria resolve tudo em três meses — se começar agora.</p>
+        <div class="decide"><span>Decisão</span><span>Ligar a coleta antes do app existir. Cada semana perdida não volta.</span></div>
+      </div>
+    </article>
+
+    <article class="finding">
+      <div class="fn">05</div>
+      <div>
+        <p class="ft">Nenhuma fonte pública cobre o núcleo do produto</p>
+        <p>Série de preço por SKU de beleza no e-commerce brasileiro, recente, e regras de cupom estruturadas: não existem em base aberta. Esses dois são construção própria, e é exatamente por isso que são o fosso competitivo.</p>
+        <div class="decide"><span>Decisão</span><span>Tratar coleta e curadoria como o produto, não como infraestrutura.</span></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section id="vertical">
+  <div class="sec-head"><span class="sec-num">02</span><h2 class="sec">O vertical certo, por acidente feliz</h2></div>
+  <p class="lede">A pergunta que eu queria responder: beleza é uma categoria onde preço realmente se mexe, ou escolhemos um nicho parado?</p>
+
+  <p>A BigDataCorp monitorou <strong>mais de 9 milhões de produtos em 1,7 milhão de sites</strong> brasileiros nas oito semanas anteriores à Black Friday de 2023. O resultado agregado é desanimador para o consumidor — e é exatamente por isso que o recorte por categoria importa tanto.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="v up">+3%</div><div class="k">Variação média do preço na Black Friday, contra dois meses antes</div></div>
+    <div class="stat"><div class="v">55%</div><div class="k">Dos produtos <em>subiram</em> de preço ou mantiveram o anterior</div></div>
+    <div class="stat"><div class="v down">66%</div><div class="k">Desconto em beleza e perfumaria — a maior queda entre as categorias</div></div>
+    <div class="stat"><div class="v">27,6 mi</div><div class="k">Produtos monitorados na edição mais recente do estudo</div></div>
+  </div>
+  <p style="font-size:12.5px;color:var(--muted);margin-top:10px">Fonte: BigDataCorp <span class="grade g-b">B · estudo</span></p>
+
+  <figure>
+    <div class="figbox">
+      <p class="figtitle">Categorias com maior desconto na Black Friday</p>
+      <p class="figsub">Desconto registrado no dia do evento · estudo de 2023 · 9 milhões de produtos</p>
+      <div class="chart-scroll">
+        <svg viewBox="0 0 720 232" role="img" aria-label="Gráfico de barras: beleza e perfumaria 66 por cento, games 62 por cento, joias e bijuterias 46 por cento, antiguidades e coleções 33 por cento.">
+          <!-- gridlines -->
+          <g stroke="var(--rule)" stroke-width="1">
+            <line x1="210" y1="16" x2="210" y2="184"/>
+            <line x1="332.9" y1="16" x2="332.9" y2="184"/>
+            <line x1="455.7" y1="16" x2="455.7" y2="184"/>
+            <line x1="578.6" y1="16" x2="578.6" y2="184"/>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--muted)" text-anchor="middle">
+            <text x="210" y="202">0</text>
+            <text x="332.9" y="202">20%</text>
+            <text x="455.7" y="202">40%</text>
+            <text x="578.6" y="202">60%</text>
+          </g>
+          <!-- bars: scale 6.143 px per % -->
+          <g font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="var(--ink)" text-anchor="end">
+            <text x="196" y="38">Beleza e perfumaria</text>
+            <text x="196" y="80">Games</text>
+            <text x="196" y="122">Joias e bijuterias</text>
+            <text x="196" y="164">Antiguidades e coleções</text>
+          </g>
+          <g data-tip>
+            <path d="M210,21 L601.4,21 Q605.4,21 605.4,25 L605.4,43 Q605.4,47 601.4,47 L210,47 Z" fill="var(--down)" data-tip="Beleza e perfumaria · 66%"/>
+            <path d="M210,63 L576.9,63 Q580.9,63 580.9,67 L580.9,85 Q580.9,89 576.9,89 L210,89 Z" fill="var(--down)" opacity="0.55" data-tip="Games · 62%"/>
+            <path d="M210,105 L478.6,105 Q482.6,105 482.6,109 L482.6,127 Q482.6,131 478.6,131 L210,131 Z" fill="var(--down)" opacity="0.55" data-tip="Joias e bijuterias · 46%"/>
+            <path d="M210,147 L398.7,147 Q402.7,147 402.7,151 L402.7,169 Q402.7,173 398.7,173 L210,173 Z" fill="var(--down)" opacity="0.55" data-tip="Antiguidades e coleções · 33%"/>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="12" font-weight="500" fill="var(--ink)">
+            <text x="615" y="38">66%</text>
+            <text x="591" y="80">62%</text>
+            <text x="493" y="122">46%</text>
+            <text x="413" y="164">33%</text>
+          </g>
+          <line x1="210" y1="184" x2="690" y2="184" stroke="var(--rule-strong)" stroke-width="1"/>
+        </svg>
+      </div>
+      <figcaption><b>Leitura:</b> beleza lidera com folga. A média de todas as categorias no mesmo evento foi de <em>alta</em> de 3% — ou seja, beleza não só desconta, ela desconta contra a corrente do próprio varejo. <b>Fonte:</b> BigDataCorp, estudo de 2023 <span class="grade g-b">B</span></figcaption>
+    </div>
+  </figure>
+
+  <p>A edição mais recente do mesmo estudo, com <strong>27,6 milhões de produtos em 2,1 milhões de sites</strong>, confirma o padrão e mostra o outro lado: as categorias que mais <em>sobem</em> antes do evento.</p>
+
+  <figure>
+    <div class="figbox">
+      <p class="figtitle">Os dois movimentos, na mesma escala</p>
+      <p class="figsub">Edição recente do estudo · 27,6 milhões de produtos</p>
+      <div class="legend">
+        <span><i class="swatch" style="background:var(--up)"></i>Alta registrada na véspera</span>
+        <span><i class="swatch" style="background:var(--down)"></i>Queda registrada no dia</span>
+      </div>
+      <div class="sm">
+        <div>
+          <h4>Maiores altas · véspera</h4>
+          <svg viewBox="0 0 380 168" role="img" aria-label="Produtos infantis subiram 147,94 por cento e eletrodomésticos 143,24 por cento na véspera.">
+            <g stroke="var(--rule)" stroke-width="1">
+              <line x1="8" y1="8" x2="8" y2="126"/><line x1="108" y1="8" x2="108" y2="126"/>
+              <line x1="208" y1="8" x2="208" y2="126"/><line x1="308" y1="8" x2="308" y2="126"/>
+            </g>
+            <g font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="var(--ink-2)">
+              <text x="8" y="18">Produtos infantis</text>
+              <text x="8" y="78">Eletrodomésticos</text>
+            </g>
+            <g data-tip>
+              <path d="M8,26 L299.9,26 Q303.9,26 303.9,30 L303.9,44 Q303.9,48 299.9,48 L8,48 Z" fill="var(--up)" data-tip="Produtos infantis · +147,94%"/>
+              <path d="M8,86 L290.5,86 Q294.5,86 294.5,90 L294.5,104 Q294.5,108 290.5,108 L8,108 Z" fill="var(--up)" opacity="0.7" data-tip="Eletrodomésticos · +143,24%"/>
+            </g>
+            <g font-family="IBM Plex Mono, monospace" font-size="11.5" font-weight="500" fill="var(--ink)">
+              <text x="312" y="41">+148%</text>
+              <text x="302" y="101">+143%</text>
+            </g>
+            <line x1="8" y1="126" x2="352" y2="126" stroke="var(--rule-strong)"/>
+            <g font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--muted)" text-anchor="middle">
+              <text x="8" y="142">0</text><text x="108" y="142">50</text><text x="208" y="142">100</text><text x="308" y="142">150%</text>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <h4>Maiores quedas · dia do evento</h4>
+          <svg viewBox="0 0 380 168" role="img" aria-label="Beleza e perfumaria caiu 66,26 por cento e celulares e telefonia 58,47 por cento no dia do evento.">
+            <g stroke="var(--rule)" stroke-width="1">
+              <line x1="8" y1="8" x2="8" y2="126"/><line x1="108" y1="8" x2="108" y2="126"/>
+              <line x1="208" y1="8" x2="208" y2="126"/><line x1="308" y1="8" x2="308" y2="126"/>
+            </g>
+            <g font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="var(--ink-2)">
+              <text x="8" y="18">Beleza e perfumaria</text>
+              <text x="8" y="78">Celulares e telefonia</text>
+            </g>
+            <g data-tip>
+              <path d="M8,26 L136.5,26 Q140.5,26 140.5,30 L140.5,44 Q140.5,48 136.5,48 L8,48 Z" fill="var(--down)" data-tip="Beleza e perfumaria · −66,26%"/>
+              <path d="M8,86 L120.9,86 Q124.9,86 124.9,90 L124.9,104 Q124.9,108 120.9,108 L8,108 Z" fill="var(--down)" opacity="0.7" data-tip="Celulares e telefonia · −58,47%"/>
+            </g>
+            <g font-family="IBM Plex Mono, monospace" font-size="11.5" font-weight="500" fill="var(--ink)">
+              <text x="149" y="41">−66%</text>
+              <text x="133" y="101">−58%</text>
+            </g>
+            <line x1="8" y1="126" x2="352" y2="126" stroke="var(--rule-strong)"/>
+            <g font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--muted)" text-anchor="middle">
+              <text x="8" y="142">0</text><text x="108" y="142">50</text><text x="208" y="142">100</text><text x="308" y="142">150%</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <figcaption><b>Atenção metodológica:</b> os dois painéis medem momentos diferentes do mesmo estudo — alta na véspera contra queda no dia. Estão na mesma escala para comparação visual, mas <em>não são o mesmo indicador</em>. Valores exatos: infantis +147,94% · eletrodomésticos +143,24% · beleza e perfumaria −66,26% · celulares −58,47%. <b>Fonte:</b> BigDataCorp <span class="grade g-b">B</span></figcaption>
+    </div>
+  </figure>
+</section>
+
+<!-- ============ 03 ============ -->
+<section id="janela">
+  <div class="sec-head"><span class="sec-num">03</span><h2 class="sec">A janela de inflação</h2></div>
+  <p class="lede">Este é o achado que obriga a reescrever uma regra do app. Vou detalhar porque ele é contraintuitivo.</p>
+
+  <p>A intuição de qualquer pessoa — e a regra que eu escrevi nos requisitos — é: <em>evento grande se aproximando, espere</em>. O dado diz que essa regra está incompleta. As lojas sobem preço <strong>entre um mês e duas semanas antes</strong> e depois aplicam desconto sobre o valor inflado. O melhor momento de compra observado foi <strong>fim de outubro e começo de novembro</strong>.</p>
+
+  <figure>
+    <div class="figbox">
+      <p class="figtitle">Como o preço se move em torno da Black Friday</p>
+      <p class="figsub">Esquema conceitual do padrão descrito no estudo — não é uma série de dados medida</p>
+      <div class="chart-scroll">
+        <svg viewBox="0 0 760 306" role="img" aria-label="Esquema: os preços ficam estáveis até cerca de quatro semanas antes, sobem até a véspera, e no dia do evento a média do e-commerce termina acima do patamar inicial enquanto beleza termina bem abaixo.">
+          <!-- inflation band -->
+          <rect x="345" y="24" width="206" height="212" fill="var(--up-soft)"/>
+          <text x="448" y="44" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1.1" fill="var(--up)">JANELA DE INFLAÇÃO</text>
+
+          <!-- reference line -->
+          <line x1="70" y1="170" x2="712" y2="170" stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="3 4"/>
+          <text x="718" y="167" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)">preço</text>
+          <text x="718" y="179" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)">base</text>
+
+          <!-- event marker -->
+          <line x1="620" y1="24" x2="620" y2="252" stroke="var(--ink)" stroke-width="1.5"/>
+          <text x="620" y="18" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing=".8" fill="var(--ink)">BLACK FRIDAY</text>
+
+          <!-- best window marker -->
+          <line x1="345" y1="236" x2="345" y2="252" stroke="var(--down)" stroke-width="1.5"/>
+          <text x="345" y="268" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="var(--down)">melhor janela medida</text>
+          <text x="345" y="283" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--muted)">fim de out / início de nov</text>
+
+          <!-- media line -->
+          <polyline points="70,170 200,168 345,170 448,132 551,95 585,92 620,160 700,163"
+                    fill="none" stroke="var(--up)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <circle cx="620" cy="160" r="4.5" fill="var(--up)" stroke="var(--surface)" stroke-width="2"/>
+          <text x="712" y="158" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="var(--up)" text-anchor="start" opacity="0"> </text>
+
+          <!-- beleza line -->
+          <polyline points="70,170 200,169 345,170 448,136 551,100 585,98 620,238 700,234"
+                    fill="none" stroke="var(--down)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="0"/>
+          <circle cx="620" cy="238" r="4.5" fill="var(--down)" stroke="var(--surface)" stroke-width="2"/>
+
+          <!-- endpoint labels -->
+          <text x="634" y="152" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="var(--up)" font-weight="500">média: acima do início</text>
+          <text x="634" y="248" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="var(--down)" font-weight="500">beleza: bem abaixo</text>
+
+          <!-- axis -->
+          <line x1="70" y1="252" x2="712" y2="252" stroke="var(--rule-strong)"/>
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--muted)" text-anchor="middle">
+            <text x="70" y="268">−8 sem</text>
+            <text x="482" y="268">−2 sem</text>
+            <text x="620" y="268">dia</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption><b>Este desenho é um esquema</b>, construído a partir da descrição qualitativa do estudo — a forma das curvas ilustra o padrão relatado, não valores medidos ponto a ponto. Os dois fatos ancorados em número são os pontos finais: a média do e-commerce termina <b>+3%</b> acima do patamar de dois meses antes, e beleza registra a maior queda entre as categorias. <b>Fonte do padrão:</b> BigDataCorp <span class="grade g-b">B</span></figcaption>
+    </div>
+  </figure>
+
+  <h3>E o padrão não é estável entre anos</h3>
+  <p>A proporção de produtos que realmente cai de preço oscila bastante de uma edição para outra. Isso é um argumento forte a favor de exibir <strong>nível de confiança</strong> junto de qualquer previsão, em vez de tratar a Black Friday como certeza.</p>
+
+  <figure>
+    <div class="figbox">
+      <p class="figtitle">Produtos com queda de preço na Black Friday</p>
+      <p class="figsub">Percentual do total monitorado · 27,6 milhões de produtos, 2,1 milhões de sites</p>
+      <div class="chart-scroll">
+        <svg viewBox="0 0 440 244" role="img" aria-label="Percentual de produtos com queda de preço: 45,59 por cento em 2023, 70,39 por cento em 2024, 64,22 por cento em 2025.">
+          <g stroke="var(--rule)" stroke-width="1">
+            <line x1="52" y1="180" x2="410" y2="180"/>
+            <line x1="52" y1="140" x2="410" y2="140"/>
+            <line x1="52" y1="100" x2="410" y2="100"/>
+            <line x1="52" y1="60" x2="410" y2="60"/>
+            <line x1="52" y1="20" x2="410" y2="20"/>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--muted)" text-anchor="end">
+            <text x="44" y="184">0</text><text x="44" y="144">20</text><text x="44" y="104">40</text><text x="44" y="64">60</text><text x="44" y="24">80%</text>
+          </g>
+          <line x1="52" y1="80" x2="410" y2="80" stroke="var(--neutral-mark)" stroke-width="1" stroke-dasharray="4 4"/>
+          <text x="410" y="76" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)">metade dos produtos</text>
+
+          <g data-tip>
+            <path d="M84,180 L84,92.8 Q84,88.8 88,88.8 L136,88.8 Q140,88.8 140,92.8 L140,180 Z" fill="var(--down)" opacity="0.5" data-tip="2023 · 45,59% dos produtos caíram"/>
+            <path d="M196,180 L196,43.2 Q196,39.2 200,39.2 L248,39.2 Q252,39.2 252,43.2 L252,180 Z" fill="var(--down)" data-tip="2024 · 70,39% dos produtos caíram"/>
+            <path d="M308,180 L308,55.6 Q308,51.6 312,51.6 L360,51.6 Q364,51.6 364,55.6 L364,180 Z" fill="var(--down)" opacity="0.78" data-tip="2025 · 64,22% dos produtos caíram"/>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="12" font-weight="500" fill="var(--ink)" text-anchor="middle">
+            <text x="112" y="80">45,6%</text>
+            <text x="224" y="30">70,4%</text>
+            <text x="336" y="43">64,2%</text>
+          </g>
+          <line x1="52" y1="180" x2="410" y2="180" stroke="var(--rule-strong)" stroke-width="1"/>
+          <g font-family="IBM Plex Sans, sans-serif" font-size="13" fill="var(--ink-2)" text-anchor="middle">
+            <text x="112" y="202">2023</text><text x="224" y="202">2024</text><text x="336" y="202">2025</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption>Valores exatos: <b>45,59%</b> (2023) · <b>70,39%</b> (2024) · <b>64,22%</b> (2025). Uma variação de 25 pontos entre anos consecutivos. <b>Fonte:</b> BigDataCorp <span class="grade g-b">B</span></figcaption>
+    </div>
+  </figure>
+
+  <div class="callout warn">
+    <span class="tag">Ajuste obrigatório · RN-19</span>
+    <p>A recomendação de esperar precisa de um terceiro estado. Proposta de regra:</p>
+    <p><strong>Mais de 6 semanas antes:</strong> regra de alerta normal.<br>
+    <strong>De 4 a 2 semanas antes:</strong> janela de inflação — se o preço está bom agora, o app diz <em>compre agora</em>, porque a tendência é subir antes de cair.<br>
+    <strong>Últimos dias e dia do evento:</strong> comparar contra o preço <em>anterior à inflação</em>, nunca contra o da véspera.</p>
+    <p>Isso também amplia a RF-037 (falsa promoção): a base de comparação não pode ser os últimos 30 dias, justamente porque esses 30 dias estão contaminados.</p>
+  </div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section id="limiares">
+  <div class="sec-head"><span class="sec-num">04</span><h2 class="sec">Os limiares do app são chutes calibráveis</h2></div>
+  <p class="lede">Escrevi números específicos nos requisitos com cara de precisão. Não são medições — e existe dado aberto para transformá-los em medições.</p>
+
+  <p>O <strong>Billion Prices Project</strong>, criado no MIT em 2008, publicou seus microdados no Harvard Dataverse para download livre. O Brasil está incluído em quatro dos conjuntos, com <strong>preço diário no nível do produto</strong>. Somado ao artigo <em>Scraped Data and Sticky Prices</em> (Cavallo, 2018), que estuda duração e tamanho das mudanças de preço, isso responde perguntas que hoje eu respondi por bom senso.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Parâmetro do Aptum</th><th class="tight">Valor atual</th><th>Origem hoje</th><th>Como medir</th></tr></thead>
+      <tbody>
+        <tr><td>Queda mínima para alertar <span class="mono">RN-05</span></td><td class="num">10%</td><td>escolha razoável</td><td>Distribuição real do tamanho das mudanças de preço online no Brasil</td></tr>
+        <tr><td>Janela histórica <span class="mono">RN-03</span></td><td class="num">90 dias</td><td>escolha razoável</td><td>Duração média de um preço até mudar — se o preço muda a cada 20 dias, 90 é longo demais</td></tr>
+        <tr><td>Histórico mínimo <span class="mono">RN-03</span></td><td class="num">14 dias</td><td>escolha razoável</td><td>Quantas observações são necessárias para um percentil estável</td></tr>
+        <tr><td>Frequência de coleta <span class="mono">RNF-031</span></td><td class="num">12 h</td><td>escolha razoável</td><td>Rigidez de preço — coletar 4× ao dia um preço que muda a cada 3 semanas é queimar dinheiro</td></tr>
+        <tr><td>Percentil de "está barato"</td><td class="num">P10</td><td>escolha razoável</td><td>Onde fica o joelho da distribuição de preços de um mesmo produto</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>O que exatamente está disponível, e com o Brasil dentro</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Conjunto</th><th class="tight">Brasil</th><th class="tight">Período</th><th>Granularidade</th></tr></thead>
+      <tbody>
+        <tr><td>Online Micro Price Data</td><td class="tight">sim</td><td class="num">2007–2010</td><td>Preço diário no nível do produto, 7 grandes varejistas</td></tr>
+        <tr><td>Price Indices</td><td class="tight">sim</td><td class="num">2007/08–2015</td><td>Índices diários de preço, inflação mensal e anual</td></tr>
+        <tr><td>Online–Offline Price Comparison</td><td class="tight">sim</td><td class="num">2014–2016</td><td>Preço no nível do produto, 56 varejistas multicanal</td></tr>
+        <tr><td>PPP Data</td><td class="tight">sim</td><td class="num">2010–2017</td><td>Preço médio trimestral, desagregado</td></tr>
+        <tr><td>Global Retailers Data</td><td class="tight">85 países</td><td class="num">2008–2013</td><td>Preço diário de todos os produtos de 4 varejistas globais</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="tag">Limitação que eu não vou disfarçar</span>
+    <p>Esses dados vão até 2017, cobrem varejo geral (supermercado, não beleza) e o Brasil aparece com poucos varejistas. Eles <strong>não</strong> dizem o preço de nada hoje. O que eles dão é a <em>física do preço online</em>: com que frequência muda, quanto muda de cada vez, quanto tempo dura. Isso envelhece muito mais devagar do que um preço, e é o suficiente para calibrar parâmetros.</p>
+    <p>Um dado adjacente e verificável: na comparação online–offline, <strong>42% dos preços eram idênticos no Brasil</strong>. Vale registrar porque relativiza a decisão D12 e o descarte das bases estaduais de nota fiscal.</p>
+  </div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section id="coldstart">
+  <div class="sec-head"><span class="sec-num">05</span><h2 class="sec">O cold start, em três camadas</h2></div>
+  <p class="lede">Nunca vivemos uma Black Friday. Isso não significa esperar um ano — significa aceitar níveis de confiança diferentes ao longo do tempo.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th class="tight">Quando</th><th>Camada</th><th>Fonte</th><th class="tight">Confiança RN-19</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="tight">Hoje</td>
+          <td>Padrão sazonal da categoria</td>
+          <td>IPCA/SIDRA — subitens perfume e higiene pessoal, série mensal longa, API oficial gratuita <span class="grade g-c">C</span></td>
+          <td class="tight">Informativa</td>
+        </tr>
+        <tr>
+          <td class="tight">Hoje</td>
+          <td>Expectativa de ordem de grandeza</td>
+          <td>Estudos BigDataCorp, por categoria <span class="grade g-b">B</span></td>
+          <td class="tight">Informativa</td>
+        </tr>
+        <tr>
+          <td class="tight">Se contratado</td>
+          <td>Histórico retroativo por produto</td>
+          <td>Keepa — cobre a Amazon Brasil, permite medir as Black Fridays de 2024 e 2025 sem termos existido</td>
+          <td class="tight">Média a Alta</td>
+        </tr>
+        <tr>
+          <td class="tight">Em 3 meses</td>
+          <td>Série própria</td>
+          <td>Coleta iniciada agora, sobre uma lista curada</td>
+          <td class="tight">Alta</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="tag">A recomendação de maior retorno deste dossiê</span>
+    <p>Ligar um coletor mínimo <strong>agora</strong>, sobre uma lista curada de produtos, gravando preço diário. Custa quase nada e não depende de nenhuma decisão de produto pendente.</p>
+    <p>Cada semana de atraso é uma semana de histórico que não volta. Um app que lança com três meses de série própria nasce com um motor de alerta funcionando; um que lança com catorze dias nasce dizendo "histórico insuficiente" para tudo.</p>
+  </div>
+
+  <h3>Duas bases públicas que ajudam antes disso</h3>
+  <ul class="body">
+    <li><strong>Olist</strong> — 100 mil pedidos reais de e-commerce brasileiro (2016–2018), com preço, <em>frete</em> e as categorias <span class="mono">beleza_saude</span> e <span class="mono">perfumaria</span>. Permite medir o peso do frete no pedido de beleza, que é o dado que falta para revisitar a decisão D12 com evidência em vez de opinião. <span class="grade g-a">A</span></li>
+    <li><strong>ONS (Reino Unido)</strong> — o instituto de estatística britânico raspa preço desde 2014 e publica a metodologia. Dois trabalhos são o nosso problema exato: o <em>CLIP</em>, que agrupa produtos semelhantes num índice em vez de acompanhar item a item, e a análise de rotatividade de produto em dados raspados de vestuário — categoria que, como beleza, tem SKU que some, muda de nome e muda de cor. <span class="grade g-a">A</span></li>
+  </ul>
+</section>
+
+<!-- ============ 06 ============ -->
+<section id="buraco">
+  <div class="sec-head"><span class="sec-num">06</span><h2 class="sec">O buraco que nenhum dado público tapa</h2></div>
+  <p class="lede">Um estudo honesto precisa ser explícito sobre o que procurou e não achou.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>O que falta</th><th>Situação</th><th>Consequência</th></tr></thead>
+      <tbody>
+        <tr><td>Série de preço por SKU de beleza no e-commerce brasileiro, recente</td><td>Não existe em base aberta</td><td>Coleta própria ou fonte paga. É o núcleo do produto.</td></tr>
+        <tr><td>Cupons com regras estruturadas (marcas excluídas, seller, mínimo)</td><td>Não existe</td><td>Curadoria manual é caminho crítico, não detalhe. Justifica a classe "Talvez".</td></tr>
+        <tr><td>Catálogo brasileiro com tom/variante estruturado</td><td>Não encontrado</td><td>Modelagem própria de variante.</td></tr>
+        <tr><td>Duração de uso de embalagem</td><td>Não encontrado</td><td>A POF chega perto, mas mede despesa, não duração. O ciclo continua dependendo da usuária informar.</td></tr>
+        <tr><td>Microdados do Billion Prices Project após 2017</td><td>Descontinuado</td><td>O que veio depois é comercial.</td></tr>
+        <tr><td>Base bruta dos estudos de Black Friday</td><td>Fechada</td><td>Só os números divulgados. Daí a nota B.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Esses buracos não são um problema do plano — são a razão pela qual o plano tem valor. Se a série de preço de beleza estivesse disponível em CSV, o Aptum seria uma tela sobre um dado de commodity. O fato de ela não existir é o que transforma coleta e curadoria no ativo da empresa.</p>
+</section>
+
+<!-- ============ 07 ============ -->
+<section id="matriz">
+  <div class="sec-head"><span class="sec-num">07</span><h2 class="sec">Matriz de fontes</h2></div>
+  <p class="lede">Tudo o que foi levantado, com a avaliação de um analista: serve para quê, custa o quê, confia-se quanto.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Fonte</th><th class="tight">Nota</th><th>Serve para</th><th class="tight">Recência</th><th class="tight">Custo</th></tr></thead>
+      <tbody>
+        <tr><td>Billion Prices Project / Harvard Dataverse</td><td class="tight"><span class="grade g-a">A</span></td><td>Calibrar limiares e frequência de coleta</td><td class="num">até 2017</td><td class="tight">grátis</td></tr>
+        <tr><td>Olist (Kaggle)</td><td class="tight"><span class="grade g-a">A</span></td><td>Peso do frete, sazonalidade de demanda, taxonomia PT-BR</td><td class="num">2016–18</td><td class="tight">grátis</td></tr>
+        <tr><td>ONS — metodologia de dado raspado</td><td class="tight"><span class="grade g-a">A</span></td><td>Como construir série estável com catálogo instável</td><td class="num">2014→</td><td class="tight">grátis</td></tr>
+        <tr><td>IBGE / SIDRA — IPCA</td><td class="tight"><span class="grade g-c">C</span></td><td>Padrão sazonal da categoria, conteúdo editorial</td><td class="num">mensal</td><td class="tight">grátis</td></tr>
+        <tr><td>IBGE — POF</td><td class="tight"><span class="grade g-a">A</span></td><td>Gasto por categoria; nova edição em campo desde nov/2024</td><td class="num">2017–18</td><td class="tight">grátis</td></tr>
+        <tr><td>BigDataCorp — estudos Black Friday</td><td class="tight"><span class="grade g-b">B</span></td><td>Direção e ordem de grandeza da flutuação</td><td class="num">2023–25</td><td class="tight">grátis</td></tr>
+        <tr><td>Bases estaduais de NFC-e (BA, PR, AL)</td><td class="tight"><span class="grade g-b">B</span></td><td>Preço real por EAN — mas varejo físico e sem API oficial</td><td class="num">tempo real</td><td class="tight">grátis</td></tr>
+        <tr><td>Open Beauty Facts</td><td class="tight"><span class="grade g-a">A</span></td><td>Catálogo e EAN — cobertura BR não apurada; licença ODbL</td><td class="num">diária</td><td class="tight">grátis</td></tr>
+        <tr><td>Keepa</td><td class="tight">—</td><td>Único histórico retroativo identificado, Amazon BR</td><td class="num">retroativo</td><td class="tight">pago</td></tr>
+        <tr><td>MCC-ENET / Neotrust</td><td class="tight"><span class="grade g-c">C</span></td><td>Contexto de vendas — não é preço</td><td class="num">mensal</td><td class="tight">grátis</td></tr>
+        <tr><td>ABIHPEC</td><td class="tight"><span class="grade g-c">C</span></td><td>Números de mercado para a tela de descoberta</td><td class="num">anual</td><td class="tight">grátis</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <span class="tag">Divergência registrada</span>
+    <p>Os números de tamanho do mercado brasileiro de beleza <strong>não batem entre fontes</strong>: uma aponta o Brasil como 3º maior mercado global movimentando US$ 26,9 bilhões; outra, como 4º, com R$ 242,3 bilhões em 2025. São metodologias e recortes diferentes (varejo contra ex-fábrica, anos distintos). Nenhuma está errada — mas nenhuma pode ser citada sozinha. Na tela de descoberta, número sempre acompanhado da fonte.</p>
+  </div>
+</section>
+
+<!-- ============ 08 ============ -->
+<section id="impacto">
+  <div class="sec-head"><span class="sec-num">08</span><h2 class="sec">Impacto nos requisitos</h2></div>
+  <p class="lede">A tradução do estudo em alterações concretas nos documentos 01 e 02.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th class="tight">#</th><th>Ajuste</th><th>Atinge</th><th class="tight">Urgência</th></tr></thead>
+      <tbody>
+        <tr><td class="tight num">A7</td><td>Modelar a <strong>janela de inflação</strong> pré-evento. A recomendação de esperar ganha um terceiro estado e a falsa promoção passa a comparar contra o período anterior à inflação.</td><td class="tight">RN-19, RF-037</td><td class="tight">alta</td></tr>
+        <tr><td class="tight num">A8</td><td>Registrar que o vertical de beleza está validado por dado — é o argumento de posicionamento e de captação.</td><td class="tight">§1.3</td><td class="tight">média</td></tr>
+        <tr><td class="tight num">A9</td><td>Marcar os limiares como <em>provisórios</em> até medição com o Billion Prices Project, em vez de apresentá-los como definidos.</td><td class="tight">RN-03, RN-05, RNF-031</td><td class="tight">alta</td></tr>
+        <tr><td class="tight num">A10</td><td>Revisitar a exclusão do frete com base no peso real do frete em beleza, medido no Olist.</td><td class="tight">D12, R3</td><td class="tight">média</td></tr>
+        <tr><td class="tight num">A11</td><td>Exibir <strong>nível de confiança</strong> em toda previsão sazonal — a proporção de produtos que cai varia 25 pontos entre anos.</td><td class="tight">RN-19</td><td class="tight">alta</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 09 ============ -->
+<section id="plano">
+  <div class="sec-head"><span class="sec-num">09</span><h2 class="sec">Plano de análise · duas semanas</h2></div>
+  <p class="lede">O que eu faria a seguir, em ordem, sem depender de nenhuma decisão comercial pendente e sem acessar nenhuma loja.</p>
+
+  <div class="plan">
+    <div class="step"><div class="sn">1</div><div>
+      <h3>Ligar o coletor</h3>
+      <p>Lista curada de produtos de beleza, preço diário, gravado desde o primeiro dia. É a única tarefa cujo custo aumenta a cada dia de espera.</p>
+      <div class="meta">Bloqueio: definir a lista curada — decisão de usuária, não de engenharia</div>
+    </div></div>
+
+    <div class="step"><div class="sn">2</div><div>
+      <h3>Medir a física do preço no Billion Prices Project</h3>
+      <p>Baixar os conjuntos com Brasil e produzir três números: duração mediana de um preço, distribuição do tamanho das mudanças, e quantas observações são necessárias para um percentil estável.</p>
+      <div class="meta">Saída: substitui os cinco chutes da seção 04 por parâmetros medidos</div>
+    </div></div>
+
+    <div class="step"><div class="sn">3</div><div>
+      <h3>Medir o peso do frete no Olist</h3>
+      <p>Recorte em <span class="mono">beleza_saude</span> e <span class="mono">perfumaria</span>: frete como fração do valor do pedido, distribuição e cauda.</p>
+      <div class="meta">Saída: mantém ou derruba a decisão D12</div>
+    </div></div>
+
+    <div class="step"><div class="sn">4</div><div>
+      <h3>Extrair o padrão sazonal do IPCA</h3>
+      <p>Séries dos subitens de perfume e higiene pessoal, decomposição sazonal, identificação dos meses sistematicamente mais baratos.</p>
+      <div class="meta">Saída: carga inicial do calendário sazonal em nível informativo, sem custo</div>
+    </div></div>
+
+    <div class="step"><div class="sn">5</div><div>
+      <h3>Ler a metodologia do ONS antes de fechar a RN-03</h3>
+      <p>CLIP e o estudo de rotatividade de produto. Evita desenhar uma série histórica que quebra na primeira vez que um SKU muda de nome.</p>
+      <div class="meta">Saída: desenho da série histórica revisado</div>
+    </div></div>
+
+    <div class="step"><div class="sn">6</div><div>
+      <h3>Reescrever a RN-19 com a janela de inflação</h3>
+      <p>Correção de regra, não funcionalidade nova. Não depende de dado novo.</p>
+      <div class="meta">Saída: documento 01 atualizado</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="riscos">
+  <div class="sec-head"><span class="sec-num">10</span><h2 class="sec">Riscos analíticos</h2></div>
+  <p class="lede">O que pode me deixar errado. Um estudo sem esta seção é propaganda.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Risco</th><th>Por que é real</th><th>Mitigação</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Apoiar uma mudança de regra em evidência de nota B</td>
+          <td>A base bruta da BigDataCorp é fechada e a metodologia detalhada não foi publicada. As duas edições têm escopos diferentes (9 mi contra 27,6 mi de produtos) e não são comparáveis entre si.</td>
+          <td>A mudança proposta (janela de inflação) é <em>conservadora</em>: ela evita um conselho, não cria um. Erra para o lado seguro.</td>
+        </tr>
+        <tr>
+          <td>Extrapolar dado de 2007–2017 para 2026</td>
+          <td>O e-commerce mudou. Repricing algorítmico é muito mais comum hoje, o que provavelmente <em>encurta</em> a duração dos preços.</td>
+          <td>Usar como ponto de partida e revalidar com a série própria assim que houver 90 dias.</td>
+        </tr>
+        <tr>
+          <td>Usar categoria como proxy de produto</td>
+          <td>"Beleza caiu 66%" não significa que o seu sérum caiu 66%. É média de categoria, sensível a mix.</td>
+          <td>Nunca prometer percentual de produto a partir de dado de categoria. Nível informativo, rotulado.</td>
+        </tr>
+        <tr>
+          <td>Sobrevivência: só medimos quem estava à venda</td>
+          <td>Produto que esgotou some da coleta. Isso enviesa a série para baixo, porque o que esgota costuma ser o que estava barato.</td>
+          <td>Registrar indisponibilidade como estado, não como lacuna — já previsto na RF-039.</td>
+        </tr>
+        <tr>
+          <td>Traduzir "desconto" sem definir contra o quê</td>
+          <td>Desconto contra preço de tabela, contra a mediana, ou contra o preço de ontem são três coisas diferentes — e a imprensa não distingue.</td>
+          <td>O app usa uma definição só, a do preço efetivo por unidade contra o histórico próprio, e a explica na interface.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="tag">Conclusão do analista</span>
+    <p>O dado disponível é suficiente para <strong>decidir</strong> e insuficiente para <strong>prometer</strong>. Dá para escolher o vertical, corrigir uma regra de negócio, calibrar parâmetros e montar conteúdo editorial de abertura — tudo isso hoje, de graça, sem tocar em nenhuma loja.</p>
+    <p>O que não dá é lançar prometendo previsão de preço por produto. Essa promessa precisa de três meses de coleta própria, ou de uma assinatura de histórico retroativo. As duas coisas se resolvem com uma decisão tomada esta semana.</p>
+  </div>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="fontes">
+  <div class="sec-head"><span class="sec-num">11</span><h2 class="sec">Fontes</h2></div>
+  <ul class="srcs">
+    <li><a href="https://www.thebillionpricesproject.com/datasets/">The Billion Prices Project — Datasets</a></li>
+    <li><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IAH6Z6">Cavallo (2018), <em>Scraped Data and Sticky Prices</em> — replicação, Harvard Dataverse</a></li>
+    <li><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NY7IP4">Cavallo &amp; Kryvtsov (2024), <em>Price discounts and cheapflation</em> — replicação</a></li>
+    <li><a href="https://www.nber.org/papers/w22111">Cavallo &amp; Rigobon — The Billion Prices Project (NBER w22111)</a></li>
+    <li><a href="https://blog.bigdatacorp.com.br/black-friday-melhor-momento-para-comprar-e-um-mes-antes-aponta-pesquisa/">BigDataCorp — Melhor momento para comprar é um mês antes</a></li>
+    <li><a href="https://www.ecommercebrasil.com.br/noticias/pesquisa-black-friday-tem-aumento-medio-de-precos-de-3-em-relacao-aos-meses-anteriores">E-Commerce Brasil — Aumento médio de 3% na Black Friday</a></li>
+    <li><a href="https://www.infomoney.com.br/consumo/tudo-pela-metade-do-dobro-veja-as-categorias-que-mais-aumentaram-precos-antes-da-black-friday/">InfoMoney — Categorias que ficaram mais caras antes da Black Friday</a></li>
+    <li><a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce">Kaggle — Brazilian E-Commerce Public Dataset by Olist</a></li>
+    <li><a href="https://www.ons.gov.uk/economy/inflationandpriceindices/articles/researchindicesusingwebscrapedpricedata/clusteringlargedatasetsintopriceindicesclip">ONS — Research indices using web scraped price data (CLIP)</a></li>
+    <li><a href="https://www.ons.gov.uk/methodology/methodologicalpublications/generalmethodology/currentmethodologyarticles/analysisofproductturnoverinwebscrapedclothingdataanditsimpactonmethodsforcompilingpriceindices">ONS — Product turnover in web scraped clothing data</a></li>
+    <li><a href="https://academic.oup.com/jrsssa/article/181/3/737/7072018">JRSS-A — Tracking and Modelling Prices Using Web-Scraped Price Microdata</a></li>
+    <li><a href="https://sidra.ibge.gov.br/tabela/7060">IBGE/SIDRA — Tabela 7060 (IPCA por subitem)</a> · <a href="https://sidra.ibge.gov.br/tabela/1419">Tabela 1419</a> · <a href="https://sidra.ibge.gov.br/tabela/1737">Tabela 1737</a></li>
+    <li><a href="https://www.ibge.gov.br/estatisticas/sociais/saude/24786-pesquisa-de-orcamentos-familiares-2.html">IBGE — POF 2017-2018</a></li>
+    <li><a href="https://precodahora.ba.gov.br/faq">Preço da Hora Bahia</a> · <a href="https://menorpreco.notaparana.pr.gov.br/">Menor Preço Nota Paraná</a> · <a href="https://economizaalagoas.sefaz.al.gov.br/">Economiza Alagoas</a></li>
+    <li><a href="https://world.openbeautyfacts.org/data">Open Beauty Facts — Data, API and SDKs</a></li>
+    <li><a href="https://keepa.com/api-docs/">Keepa — API Documentation</a></li>
+    <li><a href="https://www.mccenet.com.br/indice-de-vendas-online">MCC-ENET — Índice de Vendas Online</a></li>
+    <li><a href="https://abihpec.org.br/tamanho-mercado-cosmeticos-brasil-2026/">ABIHPEC — Tamanho do mercado</a></li>
+  </ul>
+
+  <footer>
+    Estudo produzido a partir dos levantamentos registrados nos documentos <span class="mono">03-fontes-de-dados</span>, <span class="mono">04-bases-publicas</span> e <span class="mono">05-dados-ecommerce-flutuacao</span> do projeto Aptum. Nenhum dado foi coletado de loja para esta análise.
+  </footer>
+</section>
+
+</main>
+</div>
+
+<div id="tip" role="status" aria-live="off"></div>
+
+<script>
+(function(){
+  var tip = document.getElementById('tip');
+  var marks = document.querySelectorAll('[data-tip]:not(g)');
+  function show(e){
+    var t = e.currentTarget.getAttribute('data-tip');
+    if(!t) return;
+    tip.textContent = t;
+    tip.style.opacity = '1';
+    move(e);
+  }
+  function move(e){
+    var x = e.clientX, y = e.clientY;
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = x + 14, top = y - h - 10;
+    if(left + w > window.innerWidth - 8) left = x - w - 14;
+    if(top < 8) top = y + 18;
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+  }
+  function hide(){ tip.style.opacity = '0'; }
+  marks.forEach(function(m){
+    m.addEventListener('mouseenter', show);
+    m.addEventListener('mousemove', move);
+    m.addEventListener('mouseleave', hide);
+  });
+})();
+</script>

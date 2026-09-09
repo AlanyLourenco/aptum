@@ -1,0 +1,55 @@
+# ============================================================
+# Segredos — nunca versionar.
+# Chave de afiliado vazada é conta banida. Se algum destes for
+# commitado por engano, a chave está comprometida: rotacione,
+# não basta remover o arquivo.
+# ============================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p8
+*.p12
+*.jks
+*.mobileprovision
+credenciais/
+
+# Dependências
+node_modules/
+
+# Build / artefatos
+dist/
+build/
+web-build/
+coverage/
+*.tsbuildinfo
+
+# Expo / React Native
+.expo/
+expo-env.d.ts
+.metro-health-check*
+app/ios/
+app/android/
+.kotlin/
+*.orig.*
+
+# Logs
+*.log
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# Rascunhos e backups locais
+*.bak
+.impeccable/
+
+# Sistema e editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Repo git antigo do template Expo (preservado, fora do versionamento)
+app/.git.backup-template-expo/

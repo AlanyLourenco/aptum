@@ -1,0 +1,28 @@
+# Segredos — nunca versionar.
+# Chave de afiliado vazada é conta banida, e APK/repositório público
+# se lê. Se um dia algum destes for commitado por engano, a chave está
+# comprometida: rotacione, não apenas remova o arquivo.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credenciais/
+
+# Dependências e artefatos
+node_modules/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Sistema e editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Logs
+*.log
+npm-debug.log*
